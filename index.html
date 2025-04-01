@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Mio Vecchio Diario</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&family=Merriweather:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="diary-container">
+        <!-- Sidebar per l'elenco delle note -->
+        <aside class="sidebar">
+            <h2>Le Mie Note</h2>
+            <ul id="note-list">
+                <!-- Le note salvate verranno aggiunte qui da JavaScript -->
+            </ul>
+            <button id="new-note-btn" class="btn">Nuova Nota +</button>
+        </aside>
+
+        <!-- Area Principale per scrivere/visualizzare la nota -->
+        <main class="main-content">
+            <div class="diary-page">
+                <input type="text" id="note-title" placeholder="Dai un nome alla tua nota...">
+                <textarea id="note-content" placeholder="Scrivi qui i tuoi pensieri..."></textarea>
+                <button id="save-note-btn" class="btn">Salva Nota</button>
+                <button id="delete-note-btn" class="btn btn-delete" style="display: none;">Elimina Nota</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
