@@ -1,0 +1,155 @@
+body {
+    font-family: 'Merriweather', serif;
+    background-color: #e8e0d6; /* Sfondo leggermente grezzo */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.diary-container {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    height: 80vh;
+    background-color: #fdf5e6; /* Colore carta vecchia */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #d3c0a5; /* Bordo sottile */
+    overflow: hidden; /* Nasconde overflow per bordi */
+}
+
+/* --- Sidebar (Elenco Note) --- */
+.sidebar {
+    width: 250px;
+    background-color: #eaddc5; /* Leggermente più scuro della pagina */
+    border-right: 2px solid #c8b89e; /* Simula spessore copertina/separatore */
+    padding: 20px;
+    box-sizing: border-box; /* Padding incluso nella larghezza */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Scroll se le note sono tante */
+}
+
+.sidebar h2 {
+    font-family: 'Kalam', cursive; /* Font più decorativo per il titolo */
+    text-align: center;
+    margin-top: 0;
+    color: #6b4f2c;
+    border-bottom: 1px solid #c8b89e;
+    padding-bottom: 10px;
+}
+
+#note-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    flex-grow: 1; /* Occupa lo spazio disponibile */
+}
+
+#note-list li {
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    background-color: #f5ebd8;
+    border: 1px solid #e0d2b8;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+    white-space: nowrap; /* Evita che il testo vada a capo */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Aggiunge ... se il testo è troppo lungo */
+}
+
+#note-list li:hover,
+#note-list li.active {
+    background-color: #fffbf2;
+    font-weight: bold;
+}
+
+/* --- Area Principale (Pagina Diario) --- */
+.main-content {
+    flex-grow: 1; /* Occupa lo spazio restante */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.diary-page {
+    width: 95%;
+    height: 95%;
+    background-color: #fdf5e6; /* Colore carta vecchia */
+    padding: 30px 40px; /* Margini interni */
+    box-sizing: border-box;
+    position: relative; /* Per posizionare elementi interni se necessario */
+    overflow-y: auto; /* Scroll se il contenuto è lungo */
+
+    /* --- L'EFFETTO RIGHE --- */
+    line-height: 1.8em; /* Altezza riga per testo e sfondo */
+    background-image: repeating-linear-gradient(
+        to bottom,
+        #fdf5e6, /* Colore base della carta */
+        #fdf5e6 calc(1.8em - 1px), /* Spazio prima della riga */
+        #a8d0f5 1.8em /* Colore della riga blu chiaro */
+    );
+    background-size: 100% 1.8em; /* Ripete il pattern ogni 1.8em */
+}
+
+#note-title {
+    display: block;
+    width: 100%;
+    font-family: 'Kalam', cursive; /* Font diverso per il titolo */
+    font-size: 1.8em;
+    border: none;
+    outline: none;
+    background-color: transparent; /* Sfondo trasparente per vedere le righe */
+    margin-bottom: 1em; /* Spazio sotto il titolo */
+    color: #5a4a3a;
+    border-bottom: 1px dashed #c8b89e; /* Separatore leggero */
+    padding-bottom: 5px;
+}
+
+#note-content {
+    width: 100%;
+    height: calc(100% - 120px); /* Altezza regolabile in base agli altri elementi */
+    font-family: 'Merriweather', serif; /* Font per il contenuto */
+    font-size: 1em;
+    line-height: 1.8em; /* IMPORTANTE: Deve combaciare con le righe dello sfondo! */
+    border: none;
+    outline: none;
+    background-color: transparent; /* Sfondo trasparente */
+    resize: none; /* Impedisce il ridimensionamento manuale */
+    color: #444;
+    margin-top: 0.5em; /* Allinea l'inizio del testo con la prima riga */
+}
+
+/* --- Pulsanti --- */
+.btn {
+    padding: 10px 15px;
+    background-color: #b99a74; /* Colore legno/pelle */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Merriweather', serif;
+    transition: background-color 0.2s ease;
+    margin-top: 15px;
+    margin-right: 10px; /* Spazio tra i bottoni */
+}
+
+.btn:hover {
+    background-color: #a38560;
+}
+
+#new-note-btn {
+    width: 100%; /* Occupa tutta la larghezza della sidebar */
+    margin-top: auto; /* Spinge il bottone in fondo */
+}
+
+.btn-delete {
+    background-color: #c97575; /* Rosso per eliminare */
+}
+.btn-delete:hover {
+    background-color: #b85c5c;
+}
